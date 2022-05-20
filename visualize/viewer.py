@@ -7,9 +7,9 @@ from visual_tools import draw_clouds_with_boxes
 import open3d as o3d
 
 if __name__ == "__main__":
-    cloud_path = 'data/000002.bin'
-    boxes_path = 'data/box_prediction/result_000002.txt'
+    cloud_path = 'data/000008.bin'
+    boxes_path = 'data/box_prediction/result_000008.txt'
     cloud = np.fromfile(cloud_path, dtype=np.float32).reshape(-1,4)
     boxes = np.loadtxt(boxes_path).reshape(-1,9)
-    boxes = boxes[boxes[:, -1] > 0.1][:, :7] # score thr = 0.3
+    boxes = boxes[boxes[:, -1] > 0.1][:, :7] # score thr = 0.1
     draw_clouds_with_boxes(cloud, boxes)
